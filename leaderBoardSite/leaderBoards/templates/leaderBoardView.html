@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+{{board.name}}
+{% endblock %}
+
+{% block body %} 
+    
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Score Holder</th>
+                <th scope="col">Score</th>
+                <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            {% for item in board.leaderBoardItems.all %}
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                
+                <td>{{item.scoreHolder}}</td>
+                <td>{{item.score}}</td>
+                <td>{{item.date}} GMT</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+{% endblock %}
+

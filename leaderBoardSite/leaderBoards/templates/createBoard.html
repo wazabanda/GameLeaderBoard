@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Add Board
+{% endblock %}
+{% block body %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type = "submit" class = "btn btn-success">Create</button>
+    </form>
+{% endblock body %}
+    

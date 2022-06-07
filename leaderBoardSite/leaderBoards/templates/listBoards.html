@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Leader Boards
+{% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+    {% for board in boards %}
+    <li class="list-group-item">
+        <h5>{{board.name}}</h5>
+        <br>
+        <h6>Posted by {{board.ownerName}}</h6>
+        <br>
+        <a href="{{board.id}}/" class="btn btn-success">view</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

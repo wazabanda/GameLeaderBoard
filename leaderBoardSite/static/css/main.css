@@ -1,0 +1,40 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+.sidenav{
+    height:100%;
+    width:160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111; 
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.sidenav a{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 36px;
+    color:#979797;
+    display: block;
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+
+}
+.main{
+    margin: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0px 10px;
+}
+
+.board-select
+{
+    margin: 5%;
+    box-shadow: 5px 5px 5px black;
+    background: #dbdbdb;
+}
