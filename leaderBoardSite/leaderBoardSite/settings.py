@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'register.apps.RegisterConfig',
     'leaderBoards.apps.LeaderBoardsConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'drf_yasg',
    
 ]
 
@@ -79,15 +81,36 @@ WSGI_APPLICATION = 'leaderBoardSite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
+DATABASES = {
+  'default': {  
+    'ENGINE':   'djongo',
+    'NAME':     'LeaderBoardSite',
+    "AUTH_SOURCE": 'LeaderBoardSite',
+    "USER":os.getenv("username"),
+    "PASSWORD":os.getenv("password"),
+    "HOST":'127.0.0.1',
+    "PORT":'27017'
+    },
+}
 
-
+    # """
+    # 'CLIENT': {
+    #     'host': '127.0.0.1',
+    #     'port': 27017,
+    #     'username': os.getenv("username"),
+    #     'password': os.getenv("password"),
+    #     'authSource': 'LeaderBoardSite',
+    #     'authMechanism': 'SCRAM-SHA-1'
+    #     }
+    #  """
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
