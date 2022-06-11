@@ -1,25 +1,23 @@
 {% extends "main/base.html" %}
 
 {% block title %}
-Leader Boards
+Your Boards
 {% endblock %}
 
 {% block body %}
     <ul class="list-group ">
     {% for board in boards %}
-        {% if board.visibility == "Public" %}
-    
+
             <li class="list-group-item ">
                 <h5>{{board.name}}</h5>
                 <br>
                 <h6>Posted by {{board.ownerName}}</h6>
                 <br>
 
-                <a href="{{board.id}}/" class="btn btn-success">view</a>
+                <a href="../viewBoards/{{board.id}}/" class="btn btn-success">view</a>
 
             </li>
 
-        {% endif %}
     {% endfor %}
     </ul>
 {% endblock %}

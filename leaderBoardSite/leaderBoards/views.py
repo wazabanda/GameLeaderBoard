@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseForbidden , HttpResponseRedirect
 from .forms import LeaderBoardForm,LeaderBoardItemForm
 from .models import LeaderBoard,LeaderBoardItem
+from .utilities import Utilities as util
 # API STUFF
 
 
@@ -17,7 +18,7 @@ def createLeaderBoard(response):
             lb = form.save(commit=True)
             response.user.leaderBoard.add(lb)
             lb.ownerName = response.user.username
-
+            lb.token = util.generateToken(response.user.username,lb.name,str(lb.id))
             lb.save()
     form = LeaderBoardForm()
     params = {"form":form}
@@ -27,6 +28,11 @@ def viewLeaderBoards(response):
 
     params = {"boards":lb}
     return render(response,"listBoards.html",params)
+def viewUserLeaderBoards(response):
+    lb = response.user.leaderBoard.all()
+    params = {"boards":lb}
+    return render(response,"yourBoards.html",params)
+
 def viewLeaderBoard(response,id):
     board = LeaderBoard.objects.get(pk = id)
 

@@ -35,6 +35,11 @@ body{
 .board-select
 {
     margin: 5%;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 0px 5px 5px black;
     background: #dbdbdb;
+}
+
+.drop-shadow
+{
+    box-shadow: 0px 2px 10px black;
 }

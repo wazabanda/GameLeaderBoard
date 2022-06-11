@@ -81,6 +81,8 @@ WSGI_APPLICATION = 'leaderBoardSite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+# 
 """
 DATABASES = {
     'default': {
@@ -91,13 +93,13 @@ DATABASES = {
 """
 DATABASES = {
   'default': {  
-    'ENGINE':   'djongo',
-    'NAME':     'LeaderBoardSite',
-    "AUTH_SOURCE": 'LeaderBoardSite',
+    'ENGINE':os.getenv('engine'),
+    'NAME':os.getenv('dbName'),
+    "AUTH_SOURCE": os.getenv('auth_source'),
     "USER":os.getenv("username"),
     "PASSWORD":os.getenv("password"),
-    "HOST":'127.0.0.1',
-    "PORT":'27017'
+    "HOST":os.getenv('host'),
+    "PORT":os.getenv('port')
     },
 }
 

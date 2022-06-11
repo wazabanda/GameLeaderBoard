@@ -1,3 +1,4 @@
+
 # Leader Board API by Waza_dev
 ## Introduction
 so leader boards in games are nice but i have a tough time implementing premade ones cause my brain is small so i made my own for some reason.
@@ -66,3 +67,10 @@ the payload is ->
     "phrase": "-a unique phrase for the users score to help replace-"
     }
 
+links
+
+https://www.youtube.com/c/wazaDev
+
+https://wazadev-site.herokuapp.com/
+
+https://ko-fi.com/wazadev47169

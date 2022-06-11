@@ -20,7 +20,7 @@ from drf_yasg import openapi
 # )
 urlpatterns = [
 
-    path("getBoardData/<token>/",v.getBoardData),
-    path("addBoardItem/<token>/",v.addBoardItem),
+    path("getBoardData/<token>",v.getBoardData),
+    path("addBoardItem/<token>",v.addBoardItem),
     #path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
