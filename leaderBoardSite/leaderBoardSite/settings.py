@@ -21,12 +21,12 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%dam(u0=e_*e$pl_@#rr^6hrk^wqp92!-44^388=eh^z+bk_&&'
+SECRET_KEY = os.getenv('secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wazadev-leader-boards.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -91,28 +91,29 @@ DATABASES = {
     }
 }
 """
-DATABASES = {
-  'default': {  
-    'ENGINE':os.getenv('engine'),
-    'NAME':os.getenv('dbName'),
-    "AUTH_SOURCE": os.getenv('auth_source'),
-    "USER":os.getenv("username"),
-    "PASSWORD":os.getenv("password"),
-    "HOST":os.getenv('host'),
-    "PORT":os.getenv('port')
-    },
-}
+""" for local hosted db"""
+# DATABASES = { 
+#   'default': {  
+#     'ENGINE':os.getenv('engine'),
+#     'NAME':os.getenv('dbName'),
+#     "AUTH_SOURCE": os.getenv('auth_source'),
+#     "USER":os.getenv("username"),
+#     "PASSWORD":os.getenv("password"),
+#     "HOST":os.getenv('host'),
+#     "PORT":os.getenv('port')
+#     },
+# }
 
-    # """
-    # 'CLIENT': {
-    #     'host': '127.0.0.1',
-    #     'port': 27017,
-    #     'username': os.getenv("username"),
-    #     'password': os.getenv("password"),
-    #     'authSource': 'LeaderBoardSite',
-    #     'authMechanism': 'SCRAM-SHA-1'
-    #     }
-    #  """
+DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': os.getenv('dbName'),
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': os.getenv('host')
+            }  
+        }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

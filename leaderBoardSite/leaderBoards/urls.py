@@ -6,5 +6,6 @@ urlpatterns = [
     path("createBoard/",v.createLeaderBoard),
     path("viewBoards/",v.viewLeaderBoards),
     path("viewBoards/<int:id>/",v.viewLeaderBoard),
+    path("delete/<int:id>",v.deleteBoard),
     path("userBoards/",v.viewUserLeaderBoards)
 ]

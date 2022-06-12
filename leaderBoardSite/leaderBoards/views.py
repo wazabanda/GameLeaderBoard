@@ -40,3 +40,10 @@ def viewLeaderBoard(response,id):
         "board": board
     }
     return render(response,"leaderBoardView.html",params)   
+
+def deleteBoard(response,id):
+    board:LeaderBoard = LeaderBoard.objects.get(pk=id)
+    board.delete()
+    lb = response.user.leaderBoard.all()
+    params = {"boards":lb}
+    return render(response,"yourBoards.html",params)
