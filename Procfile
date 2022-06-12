@@ -1,0 +1,1 @@
+web: gunicorn leaderBoardSite.leaderBoardSite.wsgi --log-file -
